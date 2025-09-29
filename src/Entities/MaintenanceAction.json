@@ -1,0 +1,67 @@
+{
+  "name": "MaintenanceAction",
+  "type": "object",
+  "properties": {
+    "electrolyzer_id": {
+      "type": "string",
+      "description": "Electrolyzer unit identifier"
+    },
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "preventive",
+        "corrective",
+        "emergency"
+      ],
+      "description": "Type of maintenance action"
+    },
+    "description": {
+      "type": "string",
+      "description": "Maintenance action description"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Action priority level"
+    },
+    "estimated_duration": {
+      "type": "number",
+      "description": "Estimated duration in hours"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "datetime",
+      "description": "Scheduled maintenance date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending",
+      "description": "Action status"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Technician assigned to the task"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional maintenance notes"
+    }
+  },
+  "required": [
+    "electrolyzer_id",
+    "action_type",
+    "description",
+    "priority"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Alert",
+  "type": "object",
+  "properties": {
+    "electrolyzer_id": {
+      "type": "string",
+      "description": "Electrolyzer unit identifier"
+    },
+    "alert_type": {
+      "type": "string",
+      "enum": [
+        "temperature",
+        "pressure",
+        "current",
+        "voltage",
+        "vibration",
+        "h2_purity",
+        "koh_concentration",
+        "predictive"
+      ],
+      "description": "Type of alert triggered"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Alert severity level"
+    },
+    "message": {
+      "type": "string",
+      "description": "Alert description"
+    },
+    "recommended_action": {
+      "type": "string",
+      "description": "Suggested maintenance action"
+    },
+    "is_acknowledged": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether alert has been acknowledged"
+    },
+    "acknowledged_by": {
+      "type": "string",
+      "description": "User who acknowledged the alert"
+    },
+    "resolved_at": {
+      "type": "string",
+      "format": "datetime",
+      "description": "When the alert was resolved"
+    }
+  },
+  "required": [
+    "electrolyzer_id",
+    "alert_type",
+    "severity",
+    "message"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "SensorReading",
+  "type": "object",
+  "properties": {
+    "electrolyzer_id": {
+      "type": "string",
+      "description": "Unique identifier for the electrolyzer unit"
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Stack temperature in Celsius"
+    },
+    "pressure": {
+      "type": "number",
+      "description": "Operating pressure in bar"
+    },
+    "current": {
+      "type": "number",
+      "description": "Operating current in Amperes"
+    },
+    "voltage": {
+      "type": "number",
+      "description": "Voltage per cell in Volts"
+    },
+    "vibration": {
+      "type": "number",
+      "description": "Vibration level in Hz"
+    },
+    "h2_purity": {
+      "type": "number",
+      "description": "Hydrogen purity percentage"
+    },
+    "koh_concentration": {
+      "type": "number",
+      "description": "KOH concentration in weight percentage"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "datetime",
+      "description": "Reading timestamp"
+    }
+  },
+  "required": [
+    "electrolyzer_id",
+    "temperature",
+    "pressure",
+    "current",
+    "voltage"
+  ]
+}
