@@ -376,11 +376,11 @@ ${data.details.map(detail =>
                 </Select>
               </div>
               <div>
-                <label className="!bg-gray-600 !text-white !border !border-gray-600
-                           hover:!bg-white hover:!text-black hover:!border-gray-300">">Date Range</label>
+                <label className="text-slate-300 text-sm mb-2 block">">Date Range</label>
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button variant="outline" className="border-slate-700 text-slate-300 justify-start">
+                    <Button variant="outline" className="!bg-gray-600 !text-white !border !border-gray-600
+                           hover:!bg-white hover:!text-black hover:!border-gray-300">
                       <CalendarIcon className="mr-2 h-4 w-4" />
                       {dateRange?.from ? (
                         dateRange.to ? (
