@@ -24,7 +24,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@components/ui/sidebar.jsx";
-
+import ResponsiveShell from "./ResponsiveShell.jsx";
 // روابط القائمة
 const navigationItems = [
   { title: "Live Monitoring", url: createPageUrl("Dashboard"), icon: Activity },
@@ -138,11 +138,14 @@ export default function Layout({ children /*, currentPageName*/ }) {
           </header>
 
           {/* Page Content */}
-          <div className="flex-1 overflow-auto">{children}</div>
+          <div className="flex-1 overflow-auto"><ResponsiveShell>{children}</ResponsiveShell>
+          
+          </div>
         </main>
       </div>
     </SidebarProvider>
   );
 }
+
 
 
