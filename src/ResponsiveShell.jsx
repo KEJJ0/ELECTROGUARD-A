@@ -1,15 +1,18 @@
+// src/ResponsiveShell.jsx
 import React from "react";
+
+/**
+ * غلاف استجابة عام:
+ * - يمنع الانزلاق الأفقي.
+ * - يضبط حاوية بعرض آمن + حشوات متدرجة حسب حجم الشاشة.
+ * - ما يغيّر أي منطق داخلي — بس يلف Children.
+ */
 export default function ResponsiveShell({ children }) {
   return (
-    <div className="w-full mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-      <div className="min-w-0">
-        <div className="[&_img]:max-w-full [&_img]:h-auto [&_video]:max-w-full [&_canvas]:max-w-full">
-          <div className="[&_table]:min-w-[640px] [&_table]:w-full [&_table]:border-collapse overflow-x-auto -mx-4 sm:mx-0">
-            <div className="[&_pre]:whitespace-pre-wrap [&_pre]:break-words [&_code]:break-words">
-              {children}
-            </div>
-          </div>
-        </div>
+    <div className="w-full min-h-screen overflow-x-hidden">
+      {/* الحاوية الآمنة لكل المحتوى */}
+      <div className="mx-auto w-full max-w-[1240px] px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12">
+        {children}
       </div>
     </div>
   );
