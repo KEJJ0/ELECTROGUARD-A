@@ -376,7 +376,7 @@ ${data.details.map(detail =>
                 </Select>
               </div>
               <div>
-                <label className="text-slate-300 text-sm mb-2 block">Date Range</label>
+                <label className="text-slate-300 text-sm mb-2 block"> dateRange</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="!bg-gray-600 !text-white !border !border-gray-600
@@ -488,6 +488,7 @@ ${data.details.map(detail =>
   );
 
 }
+
 
 
 
