@@ -63,7 +63,10 @@ export default function Layout({ children /*, currentPageName*/ }) {
               <SidebarGroupContent>
                 <SidebarMenu>
                   {navigationItems.map((item) => {
-                    const active = location.pathname === item.url;
+                   const active =
+  location.pathname === item.url ||
+  (item.url === '/dashboard' && location.pathname === '/');
+
                     return (
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton
@@ -141,4 +144,5 @@ export default function Layout({ children /*, currentPageName*/ }) {
     </SidebarProvider>
   );
 }
+
 
