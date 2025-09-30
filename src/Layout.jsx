@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { createPageUrl } from "@/utils";
+import { createPageUrl } from "@utils/createPageUrl.js";
 import {
   Activity,
   BarChart3,
@@ -23,7 +23,7 @@ import {
   SidebarFooter,
   SidebarProvider,
   SidebarTrigger,
-} from "@/Components/ui/sidebar";
+} from "@components/ui/sidebar.jsx";
 
 // روابط القائمة
 const navigationItems = [
@@ -141,3 +141,4 @@ export default function Layout({ children /*, currentPageName*/ }) {
     </SidebarProvider>
   );
 }
+
