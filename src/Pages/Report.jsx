@@ -362,7 +362,8 @@ ${data.details.map(detail =>
               <div>
                 <label className="text-slate-300 text-sm mb-2 block">Electrolyzer Unit</label>
                 <Select value={selectedUnit} onValueChange={setSelectedUnit}>
-                  <SelectTrigger className="bg-slate-800 border-slate-700 text-white">
+                   <SelectTrigger className="!bg-gray-600 !text-white !border !border-gray-600
+                           hover:!bg-white hover:!text-black hover:!border-gray-300">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -375,7 +376,8 @@ ${data.details.map(detail =>
                 </Select>
               </div>
               <div>
-                <label className="text-slate-300 text-sm mb-2 block">Date Range</label>
+                <label className="!bg-gray-600 !text-white !border !border-gray-600
+                           hover:!bg-white hover:!text-black hover:!border-gray-300">">Date Range</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="border-slate-700 text-slate-300 justify-start">
@@ -486,4 +488,5 @@ ${data.details.map(detail =>
   );
 
 }
+
 
