@@ -28,7 +28,7 @@ export default function Reports() {
 
   useEffect(() => {
     generateReportData();
-  }, [reportType, Range, selectedUnit]);
+  }, [reportType, dateRange, selectedUnit]);
 
   const generateReportData = () => {
     // Simulate report data generation
@@ -75,7 +75,7 @@ export default function Reports() {
     setReportData({ performance: performanceData, compliance: complianceData });
   };
 
-  const downloadReport = async (format) => {
+  const downloadReport = async (fmt) => {
     setIsGenerating(true);
     
     // Simulate report generation
@@ -83,22 +83,22 @@ export default function Reports() {
     
     const reportContent = generateReportContent();
     
-    if (format === 'pdf') {
-      // Simulate PDF download
+    if (fmt === 'pdf') {
+      
       const blob = new Blob([reportContent], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `electrolyzer-report-${format(new (), 'yyyy-MM-dd')}.txt`;
+     a.download = `electrolyzer-report-${format(new Date(), 'yyyy-MM-dd')}.txt`;
       a.click();
-    } else if (format === 'excel') {
-      // Simulate Excel download
+    } else if (fmt === 'excel') {
+     
       const csvContent = convertToCSV(reportData[reportType]);
       const blob = new Blob([csvContent], { type: 'text/csv' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `electrolyzer-report-${format(new (), 'yyyy-MM-dd')}.csv`;
+      a.download = `electrolyzer-report-${format(new Date(), 'yyyy-MM-dd')}.csv`;
       a.click();
     }
     
@@ -111,9 +111,9 @@ export default function Reports() {
     
     return `
 ELECTROLYZER MONITORING REPORT
-Generated: ${format(new (), 'PPP')}
+Generated: ${format(new Date(), 'PPP')}
 Report Type: ${reportType.toUpperCase()}
- Range: ${format(Range.from, 'MMM d, yyyy')} - ${format(Range.to, 'MMM d, yyyy')}
+ Date Range: ${format(dateRange.from, 'MMM d, yyyy')} - ${format(dateRange.to, 'MMM d, yyyy')}
 
 SUMMARY:
 ${Object.entries(data.summary || {}).map(([key, value]) => 
@@ -376,7 +376,7 @@ ${data.details.map(detail =>
                 </Select>
               </div>
               <div>
-                <label className="text-slate-300 text-sm mb-2 block"> dateRange</label>
+                <label className="text-slate-300 text-sm mb-2 block"> Date Range</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="!bg-gray-600 !text-white !border !border-gray-600
@@ -488,8 +488,3 @@ ${data.details.map(detail =>
   );
 
 }
-
-
-
-
-
