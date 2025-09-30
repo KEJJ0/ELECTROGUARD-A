@@ -15,11 +15,11 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import SystemOverview from "@/components/dashboard/SystemOverview.jsx"
-import SensorGrid     from "@/components/dashboard/SensorGrid.jsx"
-import RiskAssessment from "@/components/dashboard/RiskAssessment.jsx"
-import ReadinessIndex from "@/components/dashboard/ReadinessIndex.jsx"
-import RecentAlerts   from "@/components/dashboard/RecentAlerts.jsx"
+import SystemOverview from "../components/dashboard/SystemOverview.jsx"
+import SensorGrid     from "../components/dashboard/SensorGrid.jsx"
+import RiskAssessment from "../components/dashboard/RiskAssessment.jsx"
+import ReadinessIndex from "../components/dashboard/ReadinessIndex.jsx"
+import RecentAlerts   from "../components/dashboard/RecentAlerts.jsx"
 
 export default function Dashboard() {
   const [sensorData, setSensorData] = useState({});
@@ -137,4 +137,5 @@ export default function Dashboard() {
       </div>
     </div>
   );
+
 }
