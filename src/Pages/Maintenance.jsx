@@ -160,12 +160,15 @@ const tabBtn =
             <p className="text-slate-400 mt-1">Schedule and track maintenance activities</p>
           </div>
           <Button
-            onClick={() => setShowNewActionForm(true)}
-            className="bg-blue-600 hover:bg-blue-700"
-          >
-            <Plus className="w-4 h-4 mr-2" />
-            Schedule Maintenance
-          </Button>
+  onClick={() => setShowNewActionForm(true)}
+  className="!bg-gray-600 !text-white !border !border-gray-600
+             hover:!bg-white hover:!text-black hover:!border-gray-300
+             transition-colors"
+>
+  <Plus className="w-4 h-4 mr-2" />
+  Schedule Maintenance
+</Button>
+
         </div>
 
      {/* Quick Stats */}
@@ -423,12 +426,15 @@ const tabBtn =
 
                           <div className="flex flex-col gap-2 ml-4">
                             {action.status === 'pending' && (
-                              <Button
-                                onClick={() => updateActionStatus(action.id, 'in_progress')}
-                                className="bg-blue-600 hover:bg-blue-700"
-                              >
-                                Start Work
-                              </Button>
+                            <Button
+  onClick={() => updateActionStatus(action.id, 'in_progress')}
+  className="!bg-gray-600 !text-white !border !border-gray-600
+             hover:!bg-white hover:!text-black hover:!border-gray-300
+             transition-colors"
+>
+  Start Work
+</Button>
+
                             )}
                             {action.status === 'in_progress' && (
                               <Button
@@ -454,5 +460,6 @@ const tabBtn =
   );
 
 }
+
 
 
