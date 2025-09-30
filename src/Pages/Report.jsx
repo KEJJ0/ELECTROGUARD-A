@@ -28,7 +28,7 @@ export default function Reports() {
 
   useEffect(() => {
     generateReportData();
-  }, [reportType, dateRange, selectedUnit]);
+  }, [reportType, Range, selectedUnit]);
 
   const generateReportData = () => {
     // Simulate report data generation
@@ -89,7 +89,7 @@ export default function Reports() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `electrolyzer-report-${format(new Date(), 'yyyy-MM-dd')}.txt`;
+      a.download = `electrolyzer-report-${format(new (), 'yyyy-MM-dd')}.txt`;
       a.click();
     } else if (format === 'excel') {
       // Simulate Excel download
@@ -98,7 +98,7 @@ export default function Reports() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `electrolyzer-report-${format(new Date(), 'yyyy-MM-dd')}.csv`;
+      a.download = `electrolyzer-report-${format(new (), 'yyyy-MM-dd')}.csv`;
       a.click();
     }
     
@@ -111,9 +111,9 @@ export default function Reports() {
     
     return `
 ELECTROLYZER MONITORING REPORT
-Generated: ${format(new Date(), 'PPP')}
+Generated: ${format(new (), 'PPP')}
 Report Type: ${reportType.toUpperCase()}
-Date Range: ${format(dateRange.from, 'MMM d, yyyy')} - ${format(dateRange.to, 'MMM d, yyyy')}
+ Range: ${format(Range.from, 'MMM d, yyyy')} - ${format(Range.to, 'MMM d, yyyy')}
 
 SUMMARY:
 ${Object.entries(data.summary || {}).map(([key, value]) => 
@@ -376,12 +376,13 @@ ${data.details.map(detail =>
                 </Select>
               </div>
               <div>
-                <label className="text-slate-300 text-sm mb-2 block">">Date Range</label>
+                <label className="text-slate-300 text-sm mb-2 block">Date Range</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="!bg-gray-600 !text-white !border !border-gray-600
                            hover:!bg-white hover:!text-black hover:!border-gray-300">
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      <CalendarIcon className="!bg-gray-600 !text-white !border !border-gray-600
+                           hover:!bg-white hover:!text-black hover:!border-gray-300" />
                       {dateRange?.from ? (
                         dateRange.to ? (
                           <>
@@ -488,5 +489,6 @@ ${data.details.map(detail =>
   );
 
 }
+
 
 
