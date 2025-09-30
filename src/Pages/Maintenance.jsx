@@ -139,6 +139,14 @@ export default function Maintenance() {
     if (status === 'all') return maintenanceActions;
     return maintenanceActions.filter(action => action.status === status);
   };
+  
+const tabBtn =
+  "rounded-lg px-4 py-2 border transition-colors duration-200 \
+   bg-gray-600 text-white border-gray-600 \
+   hover:bg-white hover:text-black hover:border-gray-300 \
+   data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:border-white \
+   focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+
 
   return (
     <div className="p-4 md:p-8 bg-slate-950 min-h-screen text-white">
@@ -323,7 +331,7 @@ export default function Maintenance() {
 
         {/* Maintenance Actions Tabs */}
         <Tabs defaultValue="pending">
-          <TabsList className="bg-slate-800 text-slate-300">
+          <TabsList className="bg-transparent text-slate-300 p-1 flex flex-wrap gap-2">
             <TabsTrigger value="pending">Pending ({filteredActions('pending').length})</TabsTrigger>
             <TabsTrigger value="in_progress">In Progress ({filteredActions('in_progress').length})</TabsTrigger>
             <TabsTrigger value="completed">Completed ({filteredActions('completed').length})</TabsTrigger>
@@ -407,4 +415,5 @@ export default function Maintenance() {
       </div>
     </div>
   );
+
 }
