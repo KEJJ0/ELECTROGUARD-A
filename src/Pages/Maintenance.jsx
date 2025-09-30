@@ -330,13 +330,49 @@ const tabBtn =
         </AnimatePresence>
 
         {/* Maintenance Actions Tabs */}
-        <Tabs defaultValue="pending">
-          <TabsList className="bg-transparent text-slate-300 p-1 flex flex-wrap gap-2">
-            <TabsTrigger value="pending">Pending ({filteredActions('pending').length})</TabsTrigger>
-            <TabsTrigger value="in_progress">In Progress ({filteredActions('in_progress').length})</TabsTrigger>
-            <TabsTrigger value="completed">Completed ({filteredActions('completed').length})</TabsTrigger>
-            <TabsTrigger value="all">All Actions ({maintenanceActions.length})</TabsTrigger>
-          </TabsList>
+       <Tabs defaultValue="pending">
+  <TabsList className="bg-transparent text-slate-300 p-1 flex flex-wrap gap-2">
+    <TabsTrigger
+      value="pending"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 bg-gray-600 text-white border-gray-600
+                 hover:bg-white hover:text-black hover:border-gray-300
+                 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:border-white"
+    >
+      Pending ({filteredActions('pending').length})
+    </TabsTrigger>
+
+    <TabsTrigger
+      value="in_progress"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 bg-gray-600 text-white border-gray-600
+                 hover:bg-white hover:text-black hover:border-gray-300
+                 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:border-white"
+    >
+      In Progress ({filteredActions('in_progress').length})
+    </TabsTrigger>
+
+    <TabsTrigger
+      value="completed"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 bg-gray-600 text-white border-gray-600
+                 hover:bg-white hover:text-black hover:border-gray-300
+                 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:border-white"
+    >
+      Completed ({filteredActions('completed').length})
+    </TabsTrigger>
+
+    <TabsTrigger
+      value="all"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 bg-gray-600 text-white border-gray-600
+                 hover:bg-white hover:text-black hover:border-gray-300
+                 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:border-white"
+    >
+      All Actions ({maintenanceActions.length})
+    </TabsTrigger>
+  </TabsList>
+
 
           {['pending', 'in_progress', 'completed', 'all'].map(tabValue => (
             <TabsContent key={tabValue} value={tabValue} className="mt-6">
@@ -417,3 +453,4 @@ const tabBtn =
   );
 
 }
+
