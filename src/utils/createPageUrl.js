@@ -1,4 +1,6 @@
+// src/utils/createPageUrl.js
 export function createPageUrl(path) {
-  const base = import.meta.env.BASE_URL || '/';
-  return (base.endsWith('/') ? base.slice(0, -1) : base) + (path.startsWith('/') ? path : `/${path}`);
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, ''); // شِل أي سلاش زائد من آخر الـ base
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
 }
