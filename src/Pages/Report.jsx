@@ -381,8 +381,7 @@ ${data.details.map(detail =>
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="!bg-gray-600 !text-white !border !border-gray-600
                            hover:!bg-white hover:!text-black hover:!border-gray-300">
-                      <CalendarIcon className="!bg-gray-600 !text-white !border !border-gray-600
-                           hover:!bg-white hover:!text-black hover:!border-gray-300" />
+                      <CalendarIcon className="mr-2 h-4 w-4" />
                       {dateRange?.from ? (
                         dateRange.to ? (
                           <>
@@ -489,6 +488,7 @@ ${data.details.map(detail =>
   );
 
 }
+
 
 
 
