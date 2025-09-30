@@ -312,23 +312,28 @@ ${data.details.map(detail =>
             <p className="text-slate-400 mt-1">Generate comprehensive system reports and analytics</p>
           </div>
           <div className="flex items-center gap-3">
-            <Button
-              onClick={() => downloadReport('excel')}
-              disabled={isGenerating}
-              variant="outline"
-              className="border-slate-700 text-slate-300"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              {isGenerating ? 'Generating...' : 'Excel'}
-            </Button>
-            <Button
-              onClick={() => downloadReport('pdf')}
-              disabled={isGenerating}
-              className="bg-blue-600 hover:bg-blue-700"
-            >
-              <FileText className="w-4 h-4 mr-2" />
-              {isGenerating ? 'Generating...' : 'PDF'}
-            </Button>
+<Button
+  onClick={() => downloadReport('excel')}
+  disabled={isGenerating}
+  className="!bg-gray-600 !text-white !border !border-gray-600
+             hover:!bg-white hover:!text-black hover:!border-gray-300
+             transition-colors"
+>
+  <Download className="w-4 h-4 mr-2" />
+  {isGenerating ? 'Generating...' : 'Excel'}
+</Button>
+
+<Button
+  onClick={() => downloadReport('pdf')}
+  disabled={isGenerating}
+  className="!bg-gray-600 !text-white !border !border-gray-600
+             hover:!bg-white hover:!text-black hover:!border-gray-300
+             transition-colors"
+>
+  <FileText className="w-4 h-4 mr-2" />
+  {isGenerating ? 'Generating...' : 'PDF'}
+</Button>
+
           </div>
         </div>
 
@@ -404,43 +409,79 @@ ${data.details.map(detail =>
         </Card>
 
         {/* Report Content */}
-        <Tabs value={reportType} onValueChange={setReportType}>
-          <TabsList className="bg-slate-800 text-slate-300">
-            <TabsTrigger value="performance">Performance</TabsTrigger>
-            <TabsTrigger value="compliance">Compliance</TabsTrigger>
-            <TabsTrigger value="maintenance">Maintenance</TabsTrigger>
-            <TabsTrigger value="alerts">Alerts</TabsTrigger>
-          </TabsList>
+       <Tabs value={reportType} onValueChange={setReportType}>
+  <TabsList className="bg-transparent text-slate-300">
+    <TabsTrigger
+      value="performance"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 !bg-gray-600 !text-white !border-gray-600
+                 hover:!bg-white hover:!text-black hover:!border-gray-300
+                 data-[state=active]:!bg-white data-[state=active]:!text-black data-[state=active]:!border-white"
+    >
+      Performance
+    </TabsTrigger>
 
-          <TabsContent value="performance" className="mt-6">
-            <PerformanceReport />
-          </TabsContent>
+    <TabsTrigger
+      value="compliance"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 !bg-gray-600 !text-white !border-gray-600
+                 hover:!bg-white hover:!text-black hover:!border-gray-300
+                 data-[state=active]:!bg-white data-[state=active]:!text-black data-[state=active]:!border-white"
+    >
+      Compliance
+    </TabsTrigger>
 
-          <TabsContent value="compliance" className="mt-6">
-            <ComplianceReport />
-          </TabsContent>
+    <TabsTrigger
+      value="maintenance"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 !bg-gray-600 !text-white !border-gray-600
+                 hover:!bg-white hover:!text-black hover:!border-gray-300
+                 data-[state=active]:!bg-white data-[state=active]:!text-black data-[state=active]:!border-white"
+    >
+      Maintenance
+    </TabsTrigger>
 
-          <TabsContent value="maintenance" className="mt-6">
-            <Card className="bg-slate-900/50 border-slate-800">
-              <CardContent className="p-12 text-center">
-                <Settings className="w-16 h-16 mx-auto mb-4 text-slate-400 opacity-50" />
-                <h3 className="text-xl font-semibold text-slate-300 mb-2">Maintenance Report</h3>
-                <p className="text-slate-400">Maintenance reporting is currently under development.</p>
-              </CardContent>
-            </Card>
-          </TabsContent>
+    <TabsTrigger
+      value="alerts"
+      className="rounded-lg px-4 py-2 border transition-colors duration-200
+                 !bg-gray-600 !text-white !border-gray-600
+                 hover:!bg-white hover:!text-black hover:!border-gray-300
+                 data-[state=active]:!bg-white data-[state=active]:!text-black data-[state=active]:!border-white"
+    >
+      Alerts
+    </TabsTrigger>
+  </TabsList>
 
-          <TabsContent value="alerts" className="mt-6">
-            <Card className="bg-slate-900/50 border-slate-800">
-              <CardContent className="p-12 text-center">
-                <BarChart3 className="w-16 h-16 mx-auto mb-4 text-slate-400 opacity-50" />
-                <h3 className="text-xl font-semibold text-slate-300 mb-2">Alert Summary Report</h3>
-                <p className="text-slate-400">Alert reporting is currently under development.</p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+  <TabsContent value="performance" className="mt-6">
+    <PerformanceReport />
+  </TabsContent>
+
+  <TabsContent value="compliance" className="mt-6">
+    <ComplianceReport />
+  </TabsContent>
+
+  <TabsContent value="maintenance" className="mt-6">
+    <Card className="bg-slate-900/50 border-slate-800">
+      <CardContent className="p-12 text-center">
+        <Settings className="w-16 h-16 mx-auto mb-4 text-slate-400 opacity-50" />
+        <h3 className="text-xl font-semibold text-slate-300 mb-2">Maintenance Report</h3>
+        <p className="text-slate-400">Maintenance reporting is currently under development.</p>
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="alerts" className="mt-6">
+    <Card className="bg-slate-900/50 border-slate-800">
+      <CardContent className="p-12 text-center">
+        <BarChart3 className="w-16 h-16 mx-auto mb-4 text-slate-400 opacity-50" />
+        <h3 className="text-xl font-semibold text-slate-300 mb-2">Alert Summary Report</h3>
+        <p className="text-slate-400">Alert reporting is currently under development.</p>
+      </CardContent>
+    </Card>
+  </TabsContent>
+</Tabs>
       </div>
     </div>
   );
+
 }
